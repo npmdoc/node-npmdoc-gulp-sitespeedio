@@ -1,4 +1,7 @@
-# api documentation for  [gulp-sitespeedio (v1.0.0)](https://github.com/dreamzmaster/gulp-sitespeedio)  [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-sitespeedio.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-sitespeedio) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-sitespeedio.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-sitespeedio)
+# npmdoc-gulp-sitespeedio
+
+#### basic api documentation for  [gulp-sitespeedio (v1.0.0)](https://github.com/dreamzmaster/gulp-sitespeedio)  [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-sitespeedio.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-sitespeedio) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-sitespeedio.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-sitespeedio)
+
 #### Analyze the web performance of your site using Gulp
 
 [![NPM](https://nodei.co/npm/gulp-sitespeedio.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/gulp-sitespeedio)
@@ -74,7 +77,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "bin": {}
 }
 ```
 

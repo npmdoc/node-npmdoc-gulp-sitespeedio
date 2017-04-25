@@ -1,6 +1,6 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
-    "description": "api documentation for [gulp-sitespeedio (v1.0.0)](https://github.com/dreamzmaster/gulp-sitespeedio) [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-sitespeedio.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-sitespeedio) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-sitespeedio.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-sitespeedio)",
+    "description": "#### basic api documentation for  [gulp-sitespeedio (v1.0.0)](https://github.com/dreamzmaster/gulp-sitespeedio)  [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-sitespeedio.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-sitespeedio) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-sitespeedio.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-sitespeedio)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "gulp-sitespeedio": "*",
