@@ -61,12 +61,108 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.gulp-sitespeedio">module gulp-sitespeedio</a><ol>
 
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gulp-sitespeedio.</span>budget</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gulp-sitespeedio.budget">module gulp-sitespeedio.budget</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-sitespeedio.budget.checkBudget">
+            function <span class="apidocSignatureSpan">gulp-sitespeedio.budget.</span>checkBudget
+            <span class="apidocSignatureSpan">(data, gutil, config)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.gulp-sitespeedio" id="apidoc.module.gulp-sitespeedio">module gulp-sitespeedio</a></h1>
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gulp-sitespeedio.budget" id="apidoc.module.gulp-sitespeedio.budget">module gulp-sitespeedio.budget</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-sitespeedio.budget.checkBudget" id="apidoc.element.gulp-sitespeedio.budget.checkBudget">
+        function <span class="apidocSignatureSpan">gulp-sitespeedio.budget.</span>checkBudget
+        <span class="apidocSignatureSpan">(data, gutil, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">checkBudget = function (data, gutil, config) {
+	// lets get the budget!
+	gutil.log(gutil.colors.blue(&#x27;------------------------------------------------- Check budget&#x27;));
+
+	var failing = false;
+	var showFailedOnly = config.showFailedOnly;
+
+	var noPassedTests = 0;
+	var noFailingTests = 0;
+	var noSkippedTests = 0;
+
+	gutil.log(gutil.colors.green((showFailedOnly ? &#x27;Will show only failing test.&#x27; : &#x27;Show both failing and passing tests.&#x27;) +
+		&#x27; Change this by set gulp config showFailedOnly to true&#x27;));
+
+	gutil.log(gutil.colors.cyan(&#x27;the showFailedOnly is:&#x27; + showFailedOnly));
+
+	data.budget.forEach(function (result) {
+		if (result.skipped) {
+			noSkippedTests++;
+			if (!showFailedOnly)
+				gutil.log(gutil.colors.cyan(&#x27;[SKIPPING]&#x27;) + result.title + &#x27; &#x27; + result.url + &#x27; &#x27; + &#x27; value [&#x27; + result.value +
+					&#x27;]&#x27;);
+		} else if (result.isOk) {
+			noPassedTests++;
+			if (!showFailedOnly) {
+				gutil.log(gutil.colors.green(&#x27;[PASSED]&#x27;) + &#x27; The budget for &#x27; + result.title + &#x27; &#x27; + result.url + &#x27;[&#x27; + result.value + &#x27;]&#x27;);
+			}
+		} else {
+			noFailingTests++;
+			failing = true;
+			gutil.log(gutil.colors.red(&#x27;[FAILED]&#x27;) + &#x27; The budget for &#x27; + result.title + &#x27; &#x27; + result.url + &#x27; failed. &#x27; + result.description
+);
+		}
+	});
+
+	gutil.log(&#x27;We got &#x27; + noPassedTests + &#x27; passing tests, &#x27; + gutil.colors.red(noFailingTests + &#x27; failing&#x27;) + ((
+		noSkippedTests &#x3e; 0) ? &#x27; &#x27; + noSkippedTests + &#x27; skipped tests&#x27; : &#x27;.&#x27;));
+
+	gutil.log(gutil.colors.blue(&#x27;------------------------------------------------- Finished checking budget&#x27;));
+
+	return failing;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		Sitespeed.run(options, function (err, data) {
+
+			if (err) {
+				cb(new gutil.PluginError(PLUGIN_NAME, err + &#x27;\n\n&#x27;));
+
+			} else if (data &#x26;&#x26; data.budget) {
+
+				var isFailing = budget.<span class="apidocCodeKeywordSpan">checkBudget</span>(data, gutil, config);
+
+				if (isFailing) {
+					cb(new gutil.PluginError(PLUGIN_NAME, &#x27;FAILED BUDGETS&#x27;));
+				} else {
+					cb();
+				}
+			} else {
+...</pre></li>
+    </ul>
+
 
 </div>
 
